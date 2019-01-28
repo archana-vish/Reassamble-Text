@@ -11,29 +11,11 @@ import java.util.stream.Collectors;
 
 public class Reorder {
 
-    public static final String PATH = "/Users/av8242n/Documents/Archana/Development/AlfaSystems/TF2";
+    public static final String PATH = "/Users/av8242n/Documents/Archana/Development/AlfaSystems/TextFile";
 
     public static String reassemble(String line) {
-            String[] lines = line.split(";");
-            List<String> listOfLines = Arrays.asList(lines);
-            List<String> finalLines = new ArrayList<>();
-            Iterator<String> itrLines = listOfLines.iterator();
-            String cLine, nLine;
-            int index = 0;
-
-            while(itrLines.hasNext()) {
-                cLine = itrLines.next();
-                index++;
-                for (int inner = index; inner < listOfLines.size(); inner++) {
-                    nLine = listOfLines.get(inner);
-                    System.out.println(cLine + "---> " + nLine);
-                    System.out.println(cLine.matches(nLine) + "??" + nLine.regionMatches(5,cLine,0,cLine.length()));
-
-                }
-
-            }
-        System.out.println(finalLines);
-            return line;
+            MaxOverlap maxOverlap = new MaxOverlap();
+            return maxOverlap.mergeLines(line);
     }
 
     public static void main(String[] args) throws IOException {
